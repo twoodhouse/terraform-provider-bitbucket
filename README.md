@@ -1,6 +1,7 @@
 # Terraform Provider: Bitbucket Cloud
 This is a Terraform provider for managing resources within a Bitbucket Cloud account.
 
+
 ## Getting Started
 As this provider is published to the public [Terraform Registry](https://registry.terraform.io/providers/zahiar/bitbucket),
 you can install it like so (for Terraform 0.14+):
