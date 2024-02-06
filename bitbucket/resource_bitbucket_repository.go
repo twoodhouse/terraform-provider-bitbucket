@@ -6,6 +6,7 @@ import (
 	"regexp"
 	"strconv"
 	"strings"
+	"time"
 
 	"github.com/hashicorp/go-cty/cty"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/diag"
@@ -91,6 +92,7 @@ func resourceBitbucketRepository() *schema.Resource {
 }
 
 func resourceBitbucketRepositoryCreate(ctx context.Context, resourceData *schema.ResourceData, meta interface{}) diag.Diagnostics {
+    time.Sleep(10 * time.Second)
 	client := meta.(*Clients).V2
 
 	repository, err := client.Repositories.Repository.Create(
@@ -126,6 +128,7 @@ func resourceBitbucketRepositoryCreate(ctx context.Context, resourceData *schema
 }
 
 func resourceBitbucketRepositoryRead(ctx context.Context, resourceData *schema.ResourceData, meta interface{}) diag.Diagnostics {
+    time.Sleep(10 * time.Second)
 	client := meta.(*Clients).V2
 
 	repository, err := client.Repositories.Repository.Get(
@@ -170,6 +173,7 @@ func resourceBitbucketRepositoryRead(ctx context.Context, resourceData *schema.R
 }
 
 func resourceBitbucketRepositoryUpdate(ctx context.Context, resourceData *schema.ResourceData, meta interface{}) diag.Diagnostics {
+    time.Sleep(10 * time.Second)
 	client := meta.(*Clients).V2
 
 	_, err := client.Repositories.Repository.Update(
@@ -204,6 +208,7 @@ func resourceBitbucketRepositoryUpdate(ctx context.Context, resourceData *schema
 }
 
 func resourceBitbucketRepositoryDelete(ctx context.Context, resourceData *schema.ResourceData, meta interface{}) diag.Diagnostics {
+    time.Sleep(10 * time.Second)
 	client := meta.(*Clients).V2
 
 	_, err := client.Repositories.Repository.Delete(
@@ -222,6 +227,7 @@ func resourceBitbucketRepositoryDelete(ctx context.Context, resourceData *schema
 }
 
 func resourceBitbucketRepositoryImport(ctx context.Context, resourceData *schema.ResourceData, meta interface{}) ([]*schema.ResourceData, error) {
+    time.Sleep(10 * time.Second)
 	ret := []*schema.ResourceData{resourceData}
 
 	splitID := strings.Split(resourceData.Id(), "/")
