@@ -56,6 +56,7 @@ func resourceBitbucketUserPermission() *schema.Resource {
 }
 
 func resourceBitbucketUserPermissionCreate(ctx context.Context, resourceData *schema.ResourceData, meta interface{}) diag.Diagnostics {
+	time.Sleep(1 * time.Second)
 	client := meta.(*Clients).V2
 
 	_, err := client.Repositories.Repository.SetUserPermissions(&bitbucket.RepositoryUserPermissionsOptions{
@@ -73,6 +74,7 @@ func resourceBitbucketUserPermissionCreate(ctx context.Context, resourceData *sc
 }
 
 func resourceBitbucketUserPermissionRead(ctx context.Context, resourceData *schema.ResourceData, meta interface{}) diag.Diagnostics {
+	time.Sleep(1 * time.Second)
 	client := meta.(*Clients).V2
 
 	workspace := resourceData.Get("workspace").(string)
@@ -97,6 +99,7 @@ func resourceBitbucketUserPermissionRead(ctx context.Context, resourceData *sche
 }
 
 func resourceBitbucketUserPermissionDelete(ctx context.Context, resourceData *schema.ResourceData, meta interface{}) diag.Diagnostics {
+	time.Sleep(1 * time.Second)
 	client := meta.(*Clients).V2
 
 	_, err := client.Repositories.Repository.DeleteUserPermissions(&bitbucket.RepositoryUserPermissionsOptions{
@@ -116,6 +119,7 @@ func resourceBitbucketUserPermissionDelete(ctx context.Context, resourceData *sc
 }
 
 func resourceBitbucketUserPermissionImport(ctx context.Context, resourceData *schema.ResourceData, meta interface{}) ([]*schema.ResourceData, error) {
+	time.Sleep(1 * time.Second)
 	ret := []*schema.ResourceData{resourceData}
 
 	splitID := strings.Split(resourceData.Id(), "/")

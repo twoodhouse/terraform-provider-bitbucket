@@ -61,6 +61,7 @@ func resourceBitbucketProject() *schema.Resource {
 }
 
 func resourceBitbucketProjectCreate(ctx context.Context, resourceData *schema.ResourceData, meta interface{}) diag.Diagnostics {
+	time.Sleep(1 * time.Second)
 	client := meta.(*Clients).V2
 
 	project, err := client.Workspaces.CreateProject(
@@ -82,6 +83,7 @@ func resourceBitbucketProjectCreate(ctx context.Context, resourceData *schema.Re
 }
 
 func resourceBitbucketProjectRead(ctx context.Context, resourceData *schema.ResourceData, meta interface{}) diag.Diagnostics {
+	time.Sleep(1 * time.Second)
 	client := meta.(*Clients).V2
 
 	project, err := client.Workspaces.GetProject(
@@ -105,6 +107,7 @@ func resourceBitbucketProjectRead(ctx context.Context, resourceData *schema.Reso
 }
 
 func resourceBitbucketProjectUpdate(ctx context.Context, resourceData *schema.ResourceData, meta interface{}) diag.Diagnostics {
+	time.Sleep(1 * time.Second)
 	client := meta.(*Clients).V2
 
 	_, err := client.Workspaces.UpdateProject(
@@ -125,6 +128,7 @@ func resourceBitbucketProjectUpdate(ctx context.Context, resourceData *schema.Re
 }
 
 func resourceBitbucketProjectDelete(ctx context.Context, resourceData *schema.ResourceData, meta interface{}) diag.Diagnostics {
+	time.Sleep(1 * time.Second)
 	client := meta.(*Clients).V2
 
 	_, err := client.Workspaces.DeleteProject(
@@ -143,6 +147,7 @@ func resourceBitbucketProjectDelete(ctx context.Context, resourceData *schema.Re
 }
 
 func resourceBitbucketProjectImport(ctx context.Context, resourceData *schema.ResourceData, meta interface{}) ([]*schema.ResourceData, error) {
+	time.Sleep(1 * time.Second)
 	ret := []*schema.ResourceData{resourceData}
 
 	splitID := strings.Split(resourceData.Id(), "/")
