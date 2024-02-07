@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"strconv"
 	"strings"
+	"time"
 
 	"github.com/hashicorp/terraform-plugin-sdk/v2/diag"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
@@ -94,6 +95,7 @@ func resourceBitbucketBranchRestriction() *schema.Resource {
 }
 
 func resourceBitbucketBranchRestrictionCreate(ctx context.Context, resourceData *schema.ResourceData, meta interface{}) diag.Diagnostics {
+	time.Sleep(1 * time.Second)
 	client := meta.(*Clients).V2
 
 	opts := &gobb.BranchRestrictionsOptions{
@@ -129,6 +131,7 @@ func resourceBitbucketBranchRestrictionCreate(ctx context.Context, resourceData 
 }
 
 func resourceBitbucketBranchRestrictionRead(ctx context.Context, resourceData *schema.ResourceData, meta interface{}) diag.Diagnostics {
+	time.Sleep(1 * time.Second)
 	client := meta.(*Clients).V2
 
 	branchRestriction, err := client.Repositories.BranchRestrictions.Get(
@@ -160,6 +163,7 @@ func resourceBitbucketBranchRestrictionRead(ctx context.Context, resourceData *s
 }
 
 func resourceBitbucketBranchRestrictionUpdate(ctx context.Context, resourceData *schema.ResourceData, meta interface{}) diag.Diagnostics {
+	time.Sleep(1 * time.Second)
 	client := meta.(*Clients).V2
 
 	opts := &gobb.BranchRestrictionsOptions{
@@ -213,6 +217,7 @@ func resourceBitbucketBranchRestrictionDelete(ctx context.Context, resourceData 
 }
 
 func resourceBitbucketBranchRestrictionImport(ctx context.Context, resourceData *schema.ResourceData, meta interface{}) ([]*schema.ResourceData, error) {
+	time.Sleep(1 * time.Second)
 	ret := []*schema.ResourceData{resourceData}
 
 	splitID := strings.Split(resourceData.Id(), "/")
