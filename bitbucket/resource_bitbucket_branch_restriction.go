@@ -95,7 +95,7 @@ func resourceBitbucketBranchRestriction() *schema.Resource {
 }
 
 func resourceBitbucketBranchRestrictionCreate(ctx context.Context, resourceData *schema.ResourceData, meta interface{}) diag.Diagnostics {
-	time.Sleep(250 * time.Millisecond)
+	time.Sleep(190 * time.Millisecond)
 	client := meta.(*Clients).V2
 
 	opts := &gobb.BranchRestrictionsOptions{
@@ -131,7 +131,7 @@ func resourceBitbucketBranchRestrictionCreate(ctx context.Context, resourceData 
 }
 
 func resourceBitbucketBranchRestrictionRead(ctx context.Context, resourceData *schema.ResourceData, meta interface{}) diag.Diagnostics {
-	time.Sleep(250 * time.Millisecond)
+	time.Sleep(190 * time.Millisecond)
 	client := meta.(*Clients).V2
 
 	branchRestriction, err := client.Repositories.BranchRestrictions.Get(
@@ -163,7 +163,7 @@ func resourceBitbucketBranchRestrictionRead(ctx context.Context, resourceData *s
 }
 
 func resourceBitbucketBranchRestrictionUpdate(ctx context.Context, resourceData *schema.ResourceData, meta interface{}) diag.Diagnostics {
-	time.Sleep(250 * time.Millisecond)
+	time.Sleep(190 * time.Millisecond)
 	client := meta.(*Clients).V2
 
 	opts := &gobb.BranchRestrictionsOptions{
@@ -217,7 +217,7 @@ func resourceBitbucketBranchRestrictionDelete(ctx context.Context, resourceData 
 }
 
 func resourceBitbucketBranchRestrictionImport(ctx context.Context, resourceData *schema.ResourceData, meta interface{}) ([]*schema.ResourceData, error) {
-	time.Sleep(250 * time.Millisecond)
+	time.Sleep(190 * time.Millisecond)
 	ret := []*schema.ResourceData{resourceData}
 
 	splitID := strings.Split(resourceData.Id(), "/")

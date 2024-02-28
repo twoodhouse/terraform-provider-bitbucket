@@ -49,7 +49,7 @@ func resourceBitbucketDefaultReviewer() *schema.Resource {
 }
 
 func resourceBitbucketDefaultReviewerCreate(ctx context.Context, resourceData *schema.ResourceData, meta interface{}) diag.Diagnostics {
-    time.Sleep(250 * time.Millisecond)
+    time.Sleep(190 * time.Millisecond)
 	client := meta.(*Clients).V2
 
 	workspace := resourceData.Get("workspace").(string)
@@ -73,7 +73,7 @@ func resourceBitbucketDefaultReviewerCreate(ctx context.Context, resourceData *s
 }
 
 func resourceBitbucketDefaultReviewerRead(ctx context.Context, resourceData *schema.ResourceData, meta interface{}) diag.Diagnostics {
-    time.Sleep(250 * time.Millisecond)
+    time.Sleep(190 * time.Millisecond)
 	client := meta.(*Clients).V2
 
 	workspace := resourceData.Get("workspace").(string)
@@ -106,7 +106,7 @@ func resourceBitbucketDefaultReviewerRead(ctx context.Context, resourceData *sch
 }
 
 func resourceBitbucketDefaultReviewerDelete(ctx context.Context, resourceData *schema.ResourceData, meta interface{}) diag.Diagnostics {
-    time.Sleep(250 * time.Millisecond)
+    time.Sleep(190 * time.Millisecond)
 	client := meta.(*Clients).V2
 
 	workspace := resourceData.Get("workspace").(string)
@@ -130,7 +130,7 @@ func resourceBitbucketDefaultReviewerDelete(ctx context.Context, resourceData *s
 }
 
 func resourceBitbucketDefaultReviewerImport(ctx context.Context, resourceData *schema.ResourceData, meta interface{}) ([]*schema.ResourceData, error) {
-    time.Sleep(250 * time.Millisecond)
+    time.Sleep(190 * time.Millisecond)
 	ret := []*schema.ResourceData{resourceData}
 
 	splitID := strings.Split(resourceData.Id(), "/")
