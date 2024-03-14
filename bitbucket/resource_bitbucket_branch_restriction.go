@@ -107,6 +107,11 @@ func resourceBitbucketBranchRestrictionCreate(ctx context.Context, resourceData 
 		Users:    nil,
 		Groups:   nil,
 	}
+	// API docs specify that users and groups must both be present for these kinds
+	if resourceData.Get("kind").(string) == "push" || resourceData.Get("kind").(string) == "restrict_merges" {
+		opts.Users = []string{}
+		opts.Groups = make(map[string]string)
+	}
 	value := resourceData.Get("value").(int)
 	if value > 0 {
 		opts.Value = value
@@ -175,6 +180,11 @@ func resourceBitbucketBranchRestrictionUpdate(ctx context.Context, resourceData 
 		Value:    nil,
 		Users:    nil,
 		Groups:   nil,
+	} 
+	// API docs specify that users and groups must both be present for these kinds
+	if resourceData.Get("kind").(string) == "push" || resourceData.Get("kind").(string) == "restrict_merges" {
+		opts.Users = []string{}
+		opts.Groups = make(map[string]string)
 	}
 	value := resourceData.Get("value").(int)
 	if value > 0 {
