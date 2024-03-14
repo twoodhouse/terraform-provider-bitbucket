@@ -114,22 +114,11 @@ func resourceBitbucketBranchRestrictionCreate(ctx context.Context, resourceData 
 	users := parseBranchRestrictionUserFields(resourceData.Get("users").([]interface{}))
 	if len(users) > 0 {
 		opts.Users = users
-	} else {
-		_, usersExists := resourceData.GetOk("users")
-		if usersExists {
-			opts.Users = []string{}
-		}
 	}
 	groups := parseBranchRestrictionUserGroupFields(resourceData.Get("groups").([]interface{}))
 	if len(groups) > 0 {
 		opts.Groups = groups
-	} else {
-		_, groupsExists := resourceData.GetOk("groups")
-		if groupsExists {
-			opts.Groups = make(map[string]string)
-		}
 	}
-
 
 	branchRestriction, err := client.Repositories.BranchRestrictions.Create(opts)
 	if err != nil {
@@ -194,20 +183,10 @@ func resourceBitbucketBranchRestrictionUpdate(ctx context.Context, resourceData 
 	users := parseBranchRestrictionUserFields(resourceData.Get("users").([]interface{}))
 	if len(users) > 0 {
 		opts.Users = users
-	} else {
-		_, usersExists := resourceData.GetOk("users")
-		if usersExists {
-			opts.Users = []string{}
-		}
 	}
 	groups := parseBranchRestrictionUserGroupFields(resourceData.Get("groups").([]interface{}))
 	if len(groups) > 0 {
 		opts.Groups = groups
-	} else {
-		_, groupsExists := resourceData.GetOk("groups")
-		if groupsExists {
-			opts.Groups = make(map[string]string)
-		}
 	}
 
 	_, err := client.Repositories.BranchRestrictions.Update(opts)
