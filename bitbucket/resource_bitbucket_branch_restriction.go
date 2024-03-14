@@ -114,20 +114,11 @@ func resourceBitbucketBranchRestrictionCreate(ctx context.Context, resourceData 
 	users := parseBranchRestrictionUserFields(resourceData.Get("users").([]interface{}))
 	if len(users) > 0 {
 		opts.Users = users
-	} else {
-		if resourceData.Get("users").([]interface{}) != nil {
-			opts.Users = make(map[string]string)
-		}
 	}
 	groups := parseBranchRestrictionUserGroupFields(resourceData.Get("groups").([]interface{}))
 	if len(groups) > 0 {
 		opts.Groups = groups
-	} else {
-		if resourceData.Get("groups").([]interface{}) != nil {
-			opts.Groups = make(map[string]string)
-		}
 	}
-
 
 	branchRestriction, err := client.Repositories.BranchRestrictions.Create(opts)
 	if err != nil {
@@ -192,18 +183,10 @@ func resourceBitbucketBranchRestrictionUpdate(ctx context.Context, resourceData 
 	users := parseBranchRestrictionUserFields(resourceData.Get("users").([]interface{}))
 	if len(users) > 0 {
 		opts.Users = users
-	} else {
-		if resourceData.Get("users").([]interface{}) != nil {
-			opts.Users = make(map[string]string)
-		}
 	}
 	groups := parseBranchRestrictionUserGroupFields(resourceData.Get("groups").([]interface{}))
 	if len(groups) > 0 {
 		opts.Groups = groups
-	} else {
-		if resourceData.Get("groups").([]interface{}) != nil {
-			opts.Groups = make(map[string]string)
-		}
 	}
 
 	_, err := client.Repositories.BranchRestrictions.Update(opts)
