@@ -183,18 +183,10 @@ func resourceBitbucketBranchRestrictionUpdate(ctx context.Context, resourceData 
 	users := parseBranchRestrictionUserFields(resourceData.Get("users").([]interface{}))
 	if len(users) > 0 {
 		opts.Users = users
-	} else {
-		if resourceData.Get("users").([]interface{}) != nil {
-			opts.Users = []
-		}
 	}
 	groups := parseBranchRestrictionUserGroupFields(resourceData.Get("groups").([]interface{}))
 	if len(groups) > 0 {
 		opts.Groups = groups
-	} else {
-		if resourceData.Get("groups").([]interface{}) != nil {
-			opts.Groups = []
-		}
 	}
 
 	_, err := client.Repositories.BranchRestrictions.Update(opts)
