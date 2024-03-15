@@ -71,7 +71,7 @@ func resourceBitbucketBranchRestriction() *schema.Resource {
 			"value": {
 				Description: "A configurable value used by the following restrictions: `require_passing_builds_to_merge` uses it to define the number of minimum number of passing builds, `require_approvals_to_merge` uses it to define the minimum number of approvals before the PR can be merged, `require_default_reviewer_approvals_to_merge` uses it to define the minimum number of approvals from default reviewers before the PR can be merged.",
 				Type:        schema.TypeInt,
-				Optional:    true
+				Optional:    true,
 			},
 			"users": {
 				Description: "A list of users (usernames or user's UUID) that are exempt from this branch restriction. Can only be set if restriction type (`kind`) is set to `push` or `restrict_merges`.",
