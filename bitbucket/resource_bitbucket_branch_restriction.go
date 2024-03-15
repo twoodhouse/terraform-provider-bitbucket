@@ -94,6 +94,7 @@ func resourceBitbucketBranchRestriction() *schema.Resource {
 	}
 }
 
+
 func resourceBitbucketBranchRestrictionCreate(ctx context.Context, resourceData *schema.ResourceData, meta interface{}) diag.Diagnostics {
 	time.Sleep(150 * time.Millisecond)
 	client := meta.(*Clients).V2
